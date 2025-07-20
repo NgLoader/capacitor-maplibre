@@ -1,0 +1,43 @@
+version: 2
+updates:
+  # Web
+  - package-ecosystem: "npm"
+    directory: "/"
+    target-branch: "develop"
+    schedule:
+      interval: "weekly"
+    commit-message:
+      prefix: "deps"
+      include: "scope"
+
+  # Android
+  - package-ecosystem: "gradle"
+    directory: "/android"
+    target-branch: "develop"
+    schedule:
+      interval: "weekly"
+    commit-message:
+      prefix: "deps"
+      include: "scope"
+
+#  # Cocopods are currently not supported :(
+#  # Waiting for capacitor using swift.Package
+#  # iOS
+#  - package-ecosystem: "swift"
+#    directory: "/ios/App"
+#    target-branch: "develop"
+#    schedule:
+#      interval: "weekly"
+#    commit-message:
+#      prefix: "deps"
+#      include: "scope"
+
+  # GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    target-branch: "develop"
+    schedule:
+      interval: "weekly"
+    commit-message:
+      prefix: "ci"
+      include: "scope"
